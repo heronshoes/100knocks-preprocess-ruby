@@ -1,50 +1,17 @@
 {
     "name": "100 knocks Ruby",
-    "image": "mcr.microsoft.com/devcontainers/base:jammy",
+    "dockerFile": "Dockerfile",
     "features": {
-        "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
-            "packages": [
-                // To build Ruby
-                "autoconf",
-                "bison",
-                "rustc",
-                "libssl-dev",
-                "libyaml-dev",
-                "libreadline6-dev",
-                "zlib1g-dev",
-                "libgmp-dev",
-                "libncurses5-dev",
-                "libffi-dev",
-                "libgdbm6",
-                "libgdbm-dev",
-                "libdb-dev",
-                "uuid-dev",
-                // To install IRuby
-                "libczmq-dev",
-                "libzmq3-dev"
-            ]
-        },
         "ghcr.io/devcontainers/features/python:1": {
             "installTools": true,
             "installJupyterlab": true,
             "version": "3.11"
         },
-        // We don't use Ruby feature here
-        // "ghcr.io/devcontainers/features/ruby:1": {},
         "ghcr.io/rocker-org/devcontainer-features/quarto-cli:1": {
             "installTinyTex": true,
             "version": "latest"
         },
         "ghcr.io/devcontainers/features/github-cli:1": {}
-    },
-    // VS Code extentions for Ruby
-    "customizations": {
-        "vscode": {
-            "extensions": [
-                "rebornix.Ruby",
-                "shopify.ruby-lsp"
-            ]
-        }
     },
     // Use init process to deal with zombie process
     "init": true,
