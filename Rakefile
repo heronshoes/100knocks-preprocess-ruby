@@ -36,7 +36,7 @@ end
 desc 'Start jupyter lab'
 task jupyter: :convert do
   jupyter_options =
-    "--notebook-dir='/workspaces/red_amber/doc/notebook' --NotebookApp.token=''"
+    "--notebook-dir='doc/notebook' --NotebookApp.token=''"
   sh "bundle exec jupyter lab #{jupyter_options}"
 end
 
