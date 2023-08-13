@@ -1,6 +1,9 @@
 {
     "name": "100 knocks Ruby",
-    "dockerFile": "Dockerfile",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "cacheFrom": "ghcr.io/heronshoes/100knocks-preprocess-ruby"
+    },
     "features": {
         "ghcr.io/devcontainers/features/python:1": {
             "installTools": true,
