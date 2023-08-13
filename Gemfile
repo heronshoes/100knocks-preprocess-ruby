@@ -3,6 +3,8 @@
 source 'https://rubygems.org'
 
 gem 'irb'
+gem 'rake'
+gem 'iruby'
 
 gem 'numo-narray'
 gem 'red-arrow', '~> 12.0.0'
