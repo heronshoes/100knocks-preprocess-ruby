@@ -14,3 +14,6 @@ echo 'export TZ=Asia/Tokyo' >> $HOME/.profile
 # Install HaranoAjiFonts
 mkdir -p $HOME/.fonts
 git clone https://github.com/trueroad/HaranoAjiFonts.git $HOME/.fonts/HaranoAjiFonts
+
+# Install gems
+bundle install
