@@ -11,7 +11,7 @@ gem 'red-arrow', '~> 12.0.0'
 gem 'red-arrow-numo-narray'
 gem 'red-parquet', '~> 12.0.0'
 
-gem 'red_amber', '~> 0.5.0'
+gem 'red_amber', '~> 0.5.1'
 gem 'red-amber-view'
 gem 'rover-df'
 

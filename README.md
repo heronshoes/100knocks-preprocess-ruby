@@ -3,7 +3,7 @@
 
 このリポジトリは、一般社団法人データサイエンティスト協会が作成している「[データサイエンス100本ノック（構造化データ加工編）](https://github.com/The-Japan-DataScientist-Society/100knocks-preprocess)」の設問とサンプルデータを利用して、Rubyで動くデータフレームライブラリ[RedAmber](https://github.com/red-data-tools/red_amber)による解答例を作成したものです。上記原著のライセンスはMITライセンスであり、当リポジトリもMITライセンスに従います。
 
-オリジナル([データサイエンス100本ノック（構造化データ加工編）](https://github.com/The-Japan-DataScientist-Society/100knocks-preprocess))にから転載したデータ：
+オリジナル([データサイエンス100本ノック（構造化データ加工編）](https://github.com/The-Japan-DataScientist-Society/100knocks-preprocess))から転載したデータ：
 - `doc/data`以下のサンプルデータ
 - このファイルの、設問タイトル及び設問の内容
 オリジナルのライセンスは、MITライセンスです。
