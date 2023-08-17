@@ -1098,12 +1098,13 @@ df_customer
 
 ```{ruby}
 #| tags: [answer]
-df_customer
-  .pick(:customer_id, :birth_day, :age)
-  .assign(:age_class) do
-    age_class = (age / 10) * 10
-    age_class.replace(age_class > 60, 60)
-  end => df_customer_age
+df_customer_age =
+  df_customer
+    .pick(:customer_id, :birth_day, :age)
+    .assign(:age_class) do
+      age_class = (age / 10) * 10
+      age_class.replace(age_class > 60, 60)
+    end
 df_customer_age.tdr(elements: 4)
 ```
 
@@ -1795,12 +1796,25 @@ df = df_aggregated.left_join(duplicated, :customer_name_postal_cd)
 index_at_top_amount =
   df.slice { is_duplicated }
     .pick(:customer_name_postal_cd, :amount)
-    .assign(:index) { indices }
+    .assign(:index) { _1.indices }
     .sub_by_value(:customer_name_postal_cd)
     .assign(:rank) { amount.rank(:descending) }
     .concatenate
     .sort('index')
-    .remove { rank != 1 }
+    .remove { _1.rank != 1 }
+```
+
+```{ruby}
+df = df_aggregated.left_join(duplicated, :customer_name_postal_cd)
+index_at_top_amount =
+  df.slice { is_duplicated }
+    .pick(:customer_name_postal_cd, :amount)
+    .assign(:index) { _1.indices }
+    .sub_by_value(:customer_name_postal_cd)
+    .assign(:rank) { amount.rank(:descending) }
+    .concatenate
+    .sort('index')
+    .remove { _1.rank != 1 }
     .v(:index)
 df_duplicated =
   df.slice { is_duplicated }
@@ -1808,6 +1822,10 @@ df_duplicated =
 df_normalized =
   df.remove { is_duplicated }
     .concatenate(df_duplicated)
+```
+
+```{ruby}
+df_duplicated
 ```
 
 ```{ruby}
@@ -1901,7 +1919,7 @@ step = 6 # SQLとRに合わせる
 df_all
   .sub_by_window(size: train_size + test_size, step: step)
   .each.map do |df|
-    df.build_subframes { indices.partition { |i| i < train_size } }.to_a
+    df.build_subframes { _1.indices.partition { |i| i < train_size } }.to_a
   end
 ```
 
