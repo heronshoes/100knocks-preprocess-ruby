@@ -30,4 +30,4 @@ jobs:
           imageName: ghcr.io/heronshoes/100knocks-preprocess-ruby
           cacheFrom: ghcr.io/heronshoes/100knocks-preprocess-ruby
           push: always
-          runCmd: bundle install
+          runCmd: bundle install && rake test
